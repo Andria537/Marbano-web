@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marbano</title>
+  <meta name="description" content="Marbano's international awards and recognitions in Georgian winemaking.">
+  <link rel="icon" href="marbano_logo.png" type="image/jpeg">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+  <link rel="stylesheet" href="awards.css" />
+</head>
+<body>
+
+<!-- Shared seal gradient, referenced by every .seal mark on the page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="sealGrad" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#d9a877"/>
+      <stop offset="55%" stop-color="#b3703f"/>
+      <stop offset="100%" stop-color="#4a0e17"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <a class="logo">
+    <img src="marbano_logo.png" alt="Marbano logo">
+  </a>
+
+  <style>
+    .menu{
+        margin-left: 940px !important;
+    }
+  </style>
+  <nav class="menu">
+    <ul>
+      <li>
+        <a href="index.html">
+          <span data-lang-en="Home" data-lang-ka="Home" data-lang-ru="Home">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="shop.html">
+          <span data-lang-en="Our wines" data-lang-ka="Our wines" data-lang-ru="Our wines">Our wines</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <span data-lang-en="About us" data-lang-ka="About us" data-lang-ru="About us">About us</span>
+        </a>
+      </li>
+       <li>
+        <a href="awards.html"  class="active">
+          <span data-lang-en="Our Awards" data-lang-ka="Our Awards" data-lang-ru="Our Awards">Our Awards</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <span data-lang-en="Contact us" data-lang-ka="Contact us" data-lang-ru="Contact us">Contact us</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div style="display:flex; align-items:center; gap:22px;">
+  
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <button type="button" class="mobile-menu-close" aria-label="Close menu" onclick="toggleMenu(document.querySelector('.hamburger'))">&#10005;</button>
+  <ul>
+    <li><a href="index.html"><span data-lang-en="Home" data-lang-ka="Home" data-lang-ru="Home">Home</span></a></li>
+    <li><a href="shop.html" class="active"><span data-lang-en="Our wines" data-lang-ka="Our wines" data-lang-ru="Our wines">Our wines</span></a></li>
+    <li><a href="about.html"><span data-lang-en="About us" data-lang-ka="About us" data-lang-ru="About us">About us</span></a></li>
+    <li><a href="awards.html">Our Awards</a></li>
+    <li><a href="contact.html"><span data-lang-en="Contact us" data-lang-ka="Contact us" data-lang-ru="Contact us">Contact us</span></a></li>
+  </ul>
+</div>
+
+
+<section class="hero">
+  <h1 data-lang-en="Our Awards" data-lang-ka="ჩვენი ჯილდოები" data-lang-ru="Наши награды">Our Awards</h1>
+  <div class="subtitle" data-lang-en="Marbano — Bolnisi" data-lang-ka="Marbano — ბოლნისი" data-lang-ru="Marbano — Болниси">Marbano — Bolnisi</div>
+</section>
+
+<!-- ============================== INTRO ============================== -->
+<section class="contact-info-section reveal">
+  <div class="seal">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="url(#sealGrad)" stroke="#8a5a33" stroke-width="1" stroke-dasharray="3 4"/>
+      <g fill="none" stroke="#f6ead9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 68 V38"/>
+        <path d="M50 46 C40 46 34 40 34 32 C42 32 48 38 50 46 Z"/>
+        <path d="M50 46 C60 46 66 40 66 32 C58 32 52 38 50 46 Z"/>
+        <circle cx="50" cy="34" r="2" fill="#f6ead9" stroke="none"/>
+      </g>
+    </svg>
+  </div>
+  <h5>Our awards</h5>
+  <h1>Our Awards &amp; Achievements</h1>
+  <p class="desc">Celebrating our success — recognition earned at local and international competitions since 2018.</p>
+</section>
+
+
+<!-- ============================== PHOTO BAND ============================== -->
+<div class="photo-band">
+  <img src="https://images.pexels.com/photos/33790879/pexels-photo-33790879.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Aerial view of vineyard rows near Bolnisi">
+
+</div>
+
+<!-- ============================== AWARDS GALLERY ============================== -->
+<section class="awards-gallery-section">
+  <div class="container reveal">
+    <span class="eyebrow">Gallery</span>
+    <div class="section-heading"><h2>Medals &amp; certificates</h2></div>
+  </div>
+  <div class="awards-gallery-grid">
+    <button type="button"><img src="award1.jpg" alt="Award 1" loading="lazy"></button>
+    <button type="button"><img src="award5.jpg" alt="Award 5" loading="lazy"></button>
+    <button type="button"><img src="award4.jpg" alt="Award 4" loading="lazy"></button>
+    <button type="button"><img src="award3.jpg" alt="Award 3" loading="lazy"></button>
+    <button type="button"><img src="award9.jpg" alt="Award 7" loading="lazy"></button>
+    <button type="button"><img src="award10.jpg" alt="Award 8" loading="lazy"></button>
+        <button type="button"><img src="award7.jpg" alt="Award 2" loading="lazy"></button>
+    <button type="button"><img src="award8.jpg" alt="Award 6" loading="lazy"></button>
+    <button type="button"><img src="award11.jpg" alt="Award 9" loading="lazy"></button>
+    <button type="button"><img src="award12.jpg" alt="Award 10" loading="lazy"></button>
+    <button type="button"><img src="award13.jpg" alt="Award 11" loading="lazy"></button>
+    <button type="button"><img src="award2.jpg" alt="Award 12" loading="lazy"></button>
+    <button type="button"><img src="award6.jpg" alt="Award 13" loading="lazy"></button>
+  </div>
+</section>
+
+<!-- ============================== PHOTO BAND ============================== -->
+<div class="photo-band">
+  <img src="https://images.pexels.com/photos/17765439/pexels-photo-17765439.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Rows of wine barrels ageing in the cellar">
+
+</div>
+
+
+
+<!-- ============================== LIGHTBOX ============================== -->
+<div class="lightbox" id="awardLightbox">
+  <button type="button" class="lightbox-close" aria-label="Close">✕</button>
+  <img src="" alt="">
+</div>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=100057078145120" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/marbanowinery/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <div class="footer-logo" aria-label="Marbano logo">
+    <img src="marbano_logo.png" alt="Marbano Logo" style="height: 60px; object-fit: contain; margin: 0 auto;" />
+    <div class="footer-contact">
+      <p><a href="tel:+551989830">+551 989 830</a><br><a href="mailto:marbanowinery@gmail.com">marbanowinery@gmail.com</a></p>
+    </div>
+  </div>
+  <nav class="footer-menu">
+    <ul>
+      <li><a href="index.html"><span data-lang-en="Home" data-lang-ka="მთავარი" data-lang-ru="Главная">Home</span></a></li>
+      <li><a href="shop.html"><span data-lang-en="Our wines" data-lang-ka="მაღაზია" data-lang-ru="Магазин">Our wines</span></a></li>
+      <li><a href="about.html"><span data-lang-en="About us" data-lang-ka="ჩვენს შესახებ" data-lang-ru="О нас">About us</span></a></li>
+          <li><a href="awards.html">
+        <span data-lang-en="Our Awards" data-lang-ka="Our Awards" data-lang-ru="Our Awards">Our Awards</span></a></li>
+      <li><a href="contact.html"><span data-lang-en="Contact us" data-lang-ka="კონტაქტი" data-lang-ru="Контакты">Contact us</span></a></li>
+    </ul>
+  </nav>
+  <a id="mkdf-back-to-top" href="#" aria-label="Back to top">
+    <span class="mkdf-btt-icon-holder" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 15 29" fill="none" focusable="false">
+        <g><polygon fill="currentColor" points="14.427,0.13 14.993,0.697 1.13,14.556 14.993,28.416 14.427,28.979 0,14.556"></polygon></g>
+      </svg>
+    </span>
+  </a>
+</footer>
+
+<script src="awards.js"></script>
+</body>
+</html>

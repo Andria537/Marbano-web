@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marbano</title>
+  <meta name="description" content="Explore Marbano's collection of qvevri and barrel-aged wines from Bolnisi, Georgia.">
+  <link rel="icon" href="marbano_logo.png" type="image/jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+
+<!-- Shared seal gradient, referenced by every .seal mark on the page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="sealGrad" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#d9a877"/>
+      <stop offset="55%" stop-color="#b3703f"/>
+      <stop offset="100%" stop-color="#4a0e17"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <a class="logo">
+    <img src="marbano_logo.png" alt="Marbano logo">
+  </a>
+
+  <style>
+    .menu{
+        margin-left: 950px !important;
+    }
+  </style>
+  <nav class="menu">
+    <ul>
+      <li>
+        <a href="index.html">
+          <span data-lang-en="Home" data-lang-ka="Home" data-lang-ru="Home">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="shop.html" class="active">
+          <span data-lang-en="Our wines" data-lang-ka="Our wines" data-lang-ru="Our wines">Our wines</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <span data-lang-en="About us" data-lang-ka="About us" data-lang-ru="About us">About us</span>
+        </a>
+      </li>
+       <li>
+        <a href="awards.html">
+          <span data-lang-en="Our Awards" data-lang-ka="Our Awards" data-lang-ru="Our Awards">Our Awards</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <span data-lang-en="Contact us" data-lang-ka="Contact us" data-lang-ru="Contact us">Contact us</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div style="display:flex; align-items:center; gap:22px;">
+  
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <button type="button" class="mobile-menu-close" aria-label="Close menu" onclick="toggleMenu(document.querySelector('.hamburger'))">&#10005;</button>
+  <ul>
+    <li><a href="index.html"><span data-lang-en="Home" data-lang-ka="Home" data-lang-ru="Home">Home</span></a></li>
+    <li><a href="shop.html" class="active"><span data-lang-en="Our wines" data-lang-ka="Our wines" data-lang-ru="Our wines">Our wines</span></a></li>
+    <li><a href="about.html"><span data-lang-en="About us" data-lang-ka="About us" data-lang-ru="About us">About us</span></a></li>
+    <li><a href="awards.html">Our Awards</a></li>
+    <li><a href="contact.html"><span data-lang-en="Contact us" data-lang-ka="Contact us" data-lang-ru="Contact us">Contact us</span></a></li>
+  </ul>
+</div>
+
+<section class="hero">
+  <h1 data-lang-en="Our wines" data-lang-ka="Our wines" data-lang-ru="Our wines">Our wines</h1>
+  <div class="subtitle" data-lang-en="Marbano — Bolnisi" data-lang-ka="Marbano — Bolnisi" data-lang-ru="Marbano — Bolnisi">Marbano — Bolnisi</div>
+</section>
+
+<!-- ============================== INTRO ============================== -->
+<section class="contact-info-section reveal">
+  <div class="seal">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="url(#sealGrad)" stroke="#8a5a33" stroke-width="1" stroke-dasharray="3 4"/>
+      <g fill="none" stroke="#f6ead9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 68 V38"/>
+        <path d="M50 46 C40 46 34 40 34 32 C42 32 48 38 50 46 Z"/>
+        <path d="M50 46 C60 46 66 40 66 32 C58 32 52 38 50 46 Z"/>
+        <circle cx="50" cy="34" r="2" fill="#f6ead9" stroke="none"/>
+      </g>
+    </svg>
+  </div>
+  <h5>Our wines</h5>
+  <h1>Discover our finest wines</h1>
+  <p class="desc">
+    Our collection of premium wines — from crisp qvevri whites to deep, barrel-aged reds, each shaped by the ground it grows in.
+  </p>
+</section>
+
+
+<!-- ============================== PHOTO BAND ============================== -->
+<div class="photo-band">
+  <img src="https://images.pexels.com/photos/7347169/pexels-photo-7347169.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Hand holding a cluster of grapes">
+  <div class="band-caption">13 wines <span>·</span> One estate</div>
+</div>
+
+
+<!-- ============================== FILTER BAR (new) ============================== -->
+<div class="filter-bar">
+  <button type="button" class="active" data-filter="all">All wines</button>
+  <button type="button" data-filter="white">White</button>
+  <button type="button" data-filter="red">Red</button>
+  <button type="button" data-filter="qvevri">Qvevri</button>
+  <button type="button" data-filter="barrel">Barrel-aged</button>
+</div>
+
+<!-- ============================== WINE GRID ============================== -->
+<div class="wine-container">
+<div class="wine-card reveal" data-color="white" data-method="qvevri">
+  <div class="wine-media"><img src="https://nlinemedia.co.uk/wp-content/uploads/2022/09/%E1%83%91%E1%83%9D%E1%83%97%E1%83%9A%E1%83%94%E1%83%91%E1%83%98-033-copy-600x1024.jpg" alt="Rkatsiteli"></div> 
+  <div class="details">
+ <h2 data-lang-en="Rkatsiteli" data-lang-ka="რქაწითელი" data-lang-ru="Ркацители">Rkatsiteli
+ 
+ </h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="White Dry, Qvevri Wine" data-lang-ka="თეთრი მშრალი, ქვევრის ღვინო" data-lang-ru="Белое сухое, квеври вино">White Dry, Qvevri Wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="14%" data-lang-ka="14%" data-lang-ru="14%">14%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="7 €" data-lang-ka="7 €" data-lang-ru="7 €">7 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span data-lang-en="The wine is produced   by   Kakhetian traditional  method  - in clay 
+pitcher  Qvevri, with  grape of  Rkatsiteli   varietiy, grown in Bolnisi  
+region village Samtredo. Wine is  golden colored, characterized   with   
+strong varietal aroma, flavor of ripe pear.  Wine is reach with phenol 
+compound and tannin. 
+Serve with boiled chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties."
+        data-lang-ka=" ღვინო დამზადებულია ბოლნისის  რაიონის  სოფელ  
+სამტრედოში მოწეული რქაწითელის ჯიშის რჩეული  ყურძნისგან  
+კახური ტრადიციული მეთოდით - ქვევრში. ფერი ოქროსფერი, 
+ხასიათდება ძლიერი ჯიშური არომატით, გამოკვეთილია მწიფე 
+მსხლის ტონები.
+  ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ მოხარშულ  ქათამთან, თევზთან, 
+ბოსტნეულთნ და  ყველთან. 
+შეინახეთ  12-14 C   ტემპერატურული რეჟიმის დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. ."
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине Квеври, из винограда сорта Ркацители, выращенного в селе Самтредо Болнисского региона. Вино золотистого цвета, характеризуется 
+сильным сортовым ароматом, вкусом спелой груши. Вино богато фенольными 
+соединениями и танинами. 
+Подавать с отварной курицей, рыбой, овощами и сыром. 
+Температура подачи 12-14 С. Благодаря особой технологии Квеври, 
+вино характеризуется антиоксидантными свойствами.">
+The wine is produced   by   Kakhetian traditional  method  - in clay 
+pitcher  Qvevri, with  grape of  Rkatsiteli   varietiy, grown in Bolnisi  
+region village Samtredo. Wine is  golden colored, characterized   with   
+strong varietal aroma, flavor of ripe pear.  Wine is reach with phenol 
+compound and tannin. 
+Serve with boiled chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+    
+  </div>
+  </div>
+
+    
+
+<div class="wine-card reveal" data-color="white" data-method="qvevri">
+  <div class="wine-media"><img src="https://nlinemedia.co.uk/wp-content/uploads/2022/09/%E1%83%91%E1%83%9D%E1%83%97%E1%83%9A%E1%83%94%E1%83%91%E1%83%98-032-copy-600x1024.jpg" alt="Chinuri"></div> 
+  <div class="details">
+<h2 data-lang-en="Chinuri" data-lang-ka="ჩინური" data-lang-ru="Чинури">Chinuri
+ 
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="White Dry, Qvevri Wine" data-lang-ka="თეთრი მშრალი, ქვევრის ღვინო" data-lang-ru="Белое сухое, квеври вино">White Dry, Qvevri Wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="13.5%" data-lang-ka="13.5%" data-lang-ru="13.5%">13.5%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="8 €" data-lang-ka="8 €" data-lang-ru="8 €">8 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span 
+        data-lang-en="The wine is produced by Kakhetian traditional  method - in clay pitcher 
+Qvevri, with  grape of Chinuri variety, grown in Bolnisi  region village 
+Samtredo.  Straw-colored wine with greenish rays having pleasant 
+aroma with herbal and floral tones.  It is a cheerful young wine with 
+pleasant acidity and lively final notes. Serve with light salads and sea 
+products.
+ Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties. "
+        data-lang-ka="ღვინო დამზადებულია ბოლნისის  რაიონის  სოფელ  
+სამტრედოში   მოწეული ჩინურის ჯიშის რჩეულიი ყურძნისგან  
+კახური ტრადიციული მეთოდით - ქვევრში. ფერი - ღია  
+ჩალისფერი,  გამოკვეთილია მცენარეულ ყვავილოვანი ტონები.  
+ღვინო არის  ახალგაზრდა, სასიამოვნო მჟავიანობითა და 
+ცოცხალი დაბოლოებით.
+ რეკომენდირებულია მიირთვათ  მსუბუქ სალათებთან და ზღვის 
+პროდუქტებთან. შეინახეთ 12-14 C ტემპერატურული რეჟიმის 
+დაცვით. ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო 
+ხასიათდება მაღალი  ანტიოქსიდანტური თვისებებით. "
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине 
+Квеври, из винограда сорта Чинури, выращенного в селе 
+Самтредо Болнисского района. Вино соломенного цвета с зеленоватыми лучами, имеет приятный 
+аромат с травяными и цветочными тонами. Это бодрое молодое вино с 
+приятной кислотностью и живыми 
+финальными нотами. Подавать с легкими салатами и морепродуктами.
+Температура подачи 12-14 С. Благодаря особой технологии изготовления квеври, 
+вино характеризуется антиоксидантными свойствами.">
+The wine is produced by Kakhetian traditional  method - in clay pitcher 
+Qvevri, with  grape of Chinuri variety, grown in Bolnisi  region village 
+Samtredo.  Straw-colored wine with greenish rays having pleasant 
+aroma with herbal and floral tones.  It is a cheerful young wine with 
+pleasant acidity and lively final notes. Serve with light salads and sea 
+products.
+ Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+      
+
+<div class="wine-card reveal" data-color="white" data-method="qvevri">
+  <div class="wine-media"><img src="https://nlinemedia.co.uk/wp-content/uploads/2022/09/%E1%83%91%E1%83%9D%E1%83%97%E1%83%9A%E1%83%94%E1%83%91%E1%83%98-035-copy-600x1024.jpg" alt="Goruli Mtsvane"></div> 
+  <div class="details">
+<h2 data-lang-en="Goruli Mtsvane" data-lang-ka="გორული მწვანე" data-lang-ru="Горули Мцване">Goruli Mtsvane
+  
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong>
+      <span data-lang-en="White Dry, Qvevri Wine" data-lang-ka="თეთრი მშრალი, ქვევრის ღვინო" data-lang-ru="Белое сухое, квеври вино">White Dry, Qvevri Wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong>
+      <span data-lang-en="13.5%" data-lang-ka="13.5%" data-lang-ru="13.5%">13.5%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong>
+      <span data-lang-en="8 €" data-lang-ka="8 €" data-lang-ru="8 €">8 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong>
+      <span
+        data-lang-en=" The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of  Goruli Mtsvane  and Chinuri varieties, grown in 
+Bolnisi  region village Asureti.  Wine is golden colored, characterized 
+with strong varietal aroma, flavor of ripe pear  and  herbal and floral. 
+Wine is reach with phenol compound and tannin. Serve with boiled 
+chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties. "
+        data-lang-ka="ღვინო დამზადებულია ბოლნისის  რაიონის    სოფელ  ასურეთში 
+მოწეული გორული მწვანისა  და  ჩინურის   ჯიშის რჩეული  
+ყურძნისგან  
+კახური ტრადიციული მეთოდით - ქვევრში. 
+ფერი ოქროსფერი, ხასიათდება ძლიერი ჯიშური არომატით, 
+გამოკვეთილია მწიფე მსხლის და   მცენარეულ ყვავილოვანი 
+ტონები.  
+ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ მოხარშულ  ქათამთან, 
+თევზთან, ბოსტნეულთნ და  ყველთან. 
+შეინახეთ  12-14 C ტემპერატურული რეჟიმის დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. "
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине 
+Квеври, из винограда сортов Горули Мцване и Чинури, выращенного в 
+селе Асурети Болнисского района. Вино золотистого цвета, характеризуется 
+сильным сортовым ароматом, вкусом спелой груши и травяно-цветочными нотками. 
+Вино богато фенольными соединениями и танинами. Подавать с 
+вареной курицей, рыбой, овощами и сыром. 
+Температура подачи 12-14 С. Благодаря особой технологии изготовления квеври, 
+вино характеризуется антиоксидантными свойствами.">
+     The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of  Goruli Mtsvane  and Chinuri varieties, grown in 
+Bolnisi  region village Asureti.  Wine is golden colored, characterized 
+with strong varietal aroma, flavor of ripe pear  and  herbal and floral. 
+Wine is reach with phenol compound and tannin. Serve with boiled 
+chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+      
+
+<div class="wine-card reveal" data-color="white" data-method="qvevri">
+ <div class="wine-media"><img src="https://nlinemedia.co.uk/wp-content/uploads/2022/09/%E1%83%91%E1%83%9D%E1%83%97%E1%83%9A%E1%83%94%E1%83%91%E1%83%98-03-copy-600x1024.jpg" alt="Mtsvane"></div> 
+  <div class="details">
+<h2 data-lang-en="Manavi Mtsvane" data-lang-ka="მანავის მწვანე" data-lang-ru="Манави Мцване">Manavi Mtsvane
+  
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="White Dry, Qvevri Wine" data-lang-ka="თეთრი მშრალი, ქვევრის ღვინო" data-lang-ru="Белое сухое, квеври вино">White Dry, Qvevri Wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="13%" data-lang-ka="13%" data-lang-ru="13%">13%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="8 €" data-lang-ka="8 €" data-lang-ru="8 €">8 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span data-lang-en="The wine is produced by Kakhetian traditional  method  -   in clay 
+pitcher  Qvevri, with  grape of Mtsvane variety, grown in Kakheti region. 
+Wine is golden colored, characterized with strong varietal aroma, 
+flavor of ripe pear  and  peach.  Wine is reach with phenol compound 
+and tannin. 
+Serve with boiled chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is 
+characterized with anti-oxidant properties. "
+            data-lang-ka="ღვინო დამზადებულია კახეთის რეგიონის  სოფელ  კაკაბეთში  
+მოწეული მწვანეს  ჯიშის რჩეული ყურძნისგან კახური 
+ტრადიციული მეთოდით - ქვევრში. ფერი ოქროსფერი, 
+ხასიათდება ძლიური ჯიშური არომატით, 
+მწიფე მსხლისა და  ატმის ტონებით. 
+ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ მოხარშულ  ქათამთან, 
+თევზთან, ბოსტნეულთნ და ყველთან. 
+შეინახეთ  12-14 C ტემპერატურული რეჟიმის დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. "
+            data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине Квеври, из винограда сорта Мцване, выращенного в регионе Кахетия. 
+Вино золотистого цвета, характеризуется сильным сортовым ароматом, 
+вкусом спелой груши и персика. Вино богато фенольными соединениями 
+и танинами. 
+Подавать с отварной курицей, рыбой, овощами и сыром. 
+Температура подачи 12-14 С. 
+Благодаря особой технологии изготовления Квеври вино 
+характеризуется антиоксидантными свойствами.">
+The wine is produced by Kakhetian traditional  method  -   in clay 
+pitcher  Qvevri, with  grape of Mtsvane variety, grown in Kakheti region. 
+Wine is golden colored, characterized with strong varietal aroma, 
+flavor of ripe pear  and  peach.  Wine is reach with phenol compound 
+and tannin. 
+Serve with boiled chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is 
+characterized with anti-oxidant properties. 
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+    
+
+<div class="wine-card reveal" data-color="red" data-method="barrel">
+ <div class="wine-media"><img src="https://rozewines.com/app/uploads/2024/08/Marbano-Shavkapito-scaled-1.jpg" alt="Shavkapito"></div> 
+  <div class="details">
+<h2 data-lang-en="Shavkapito" data-lang-ka="შავკაპიტო" data-lang-ru="Шавкапито">Shavkapito
+
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red dry" data-lang-ka="წითელი მშრალი" data-lang-ru="Красное сухое">Red dry</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="13%" data-lang-ka="13%" data-lang-ru="13%">13%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="13 €" data-lang-ka="13 €" data-lang-ru="13 €">13 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span data-lang-en=" Red  Dry  Wine
+ The wine is produced by Georgian method - in barrel, with grape of 
+Shavkapito variety, grown in Bolnisi region and  aged in oak barrel.  
+Color - dark ruby.
+ Serving temperature 12-14 C."
+            data-lang-ka=" წითელი  მშრალი  ღვინო
+ ღვინო დამზადებულია ბოლნისში მოწეული უმაღლესი ხარისხის 
+შავკაპიტოს ჯიშის ყურძნისგან  ქართული ტრადიციული 
+მეთოდით - მუხის  ჩანში  და  დაძველებულია მუხის კასრში.  
+ფერი - მუქი ლალისფერი. 
+შეინახეთ 12-14 C ტემპერატურული რეჟიმის დაცვით."
+            data-lang-ru="Красное сухое вино
+Вино изготовлено из винограда высшего качества сорта Шавкапитос, собранного в Болниси традиционным грузинским
+методом - в дубовых чанах и выдержанного в дубовых бочках.
+Цвет - темно-рубиновый.
+Хранить при температуре 12-14 С.">
+      Red  Dry  Wine
+ The wine is produced by Georgian method - in barrel, with grape of 
+Shavkapito variety, grown in Bolnisi region and  aged in oak barrel.  
+Color - dark ruby.
+ Serving temperature 12-14 C.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+      
+
+<div class="wine-card reveal" data-color="white" data-method="qvevri">
+  <div class="wine-media"><img src="https://rozewines.com/app/uploads/2025/02/marbano-aligote-rkatsiteli-scaled.jpg" alt="Aligote-Rkatsiteli"></div> 
+  <div class="details">
+<h2 data-lang-en="Aligote-Rkatsiteli" data-lang-ka="ალიგოტე-რქაწითელი" data-lang-ru="Алиготе-Ркацители">Aligote-Rkatsiteli
+  
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="White Dry, Qvevri Wine" data-lang-ka="თეთრი მშრალი, ქვევრის ღვინო" data-lang-ru="Белое сухое, квеври вино">White Dry, Qvevri Wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="14%" data-lang-ka="14%" data-lang-ru="14%">14%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="8 €" data-lang-ka="8 €" data-lang-ru="8 €">8 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span data-lang-en="The wine is produced   by   Kakhetian traditional  method  - in clay 
+pitcher  Qvevri, with  grape of  Aligote-Rkatsiteli   varietiy, grown in 
+Bolnisi  region village Samtredo. Wine is  golden colored, characterized   
+with   strong varietal aroma, flavor of ripe pear.  Wine is reach with 
+phenol compound and tannin. 
+Serve with boiled chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties."
+            data-lang-ka=" ღვინო დამზადებულია ბოლნისის  რაიონის  სოფელ  
+სამტრედოში მოწეული ალიგოტე-რქაწითელის ჯიშის რჩეული  
+ყურძნისგან  კახური ტრადიციული მეთოდით - ქვევრში. ფერი 
+ოქროსფერი, ხასიათდება ძლიერი ჯიშური არომატით, 
+გამოკვეთილია მწიფე მსხლის ტონები.
+  ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ მოხარშულ  ქათამთან, თევზთან, 
+ბოსტნეულთნ და  ყველთან. 
+შეინახეთ  12-14 C   ტემპერატურული რეჟიმის დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით."
+            data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине Квеври, из винограда сорта Алиготе-Ркацители, выращенного в селе Самтредо Болнисского района. Вино золотистого цвета, характеризуется 
+сильным сортовым ароматом, вкусом спелой груши. Вино богато 
+фенольными соединениями и танинами. 
+Подавать с отварной курицей, рыбой, овощами и сыром. 
+Температура подачи 12-14 С. Благодаря особой технологии Квеври, 
+вино характеризуется антиоксидантными свойствами.">
+   The wine is produced   by   Kakhetian traditional  method  - in clay 
+pitcher  Qvevri, with  grape of  Aligote-Rkatsiteli   varietiy, grown in 
+Bolnisi  region village Samtredo. Wine is  golden colored, characterized   
+with   strong varietal aroma, flavor of ripe pear.  Wine is reach with 
+phenol compound and tannin. 
+Serve with boiled chicken, fish, vegetables and cheese. 
+Serving temperature 12-14 C. Due to specific technology of Qvevri, the 
+wine is characterized with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+      
+
+<div class="wine-card reveal" data-color="white" data-method="other">
+  <div class="wine-media"><img src="https://rozewines.com/app/uploads/2025/02/Marbano-Tetri-scaled.jpg" alt="White Wine"></div>
+  <div class="details">
+<h2 data-lang-en="White" data-lang-ka="თეთრი" data-lang-ru="Белое">White
+
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="White Dry" data-lang-ka="თეთრი მშრალი" data-lang-ru="Белое сухое">White Dry</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="12.5%" data-lang-ka="12.5%" data-lang-ru="12.5%">12.5%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="7 €" data-lang-ka="7 €" data-lang-ru="7 €">7 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span data-lang-en=" The wine is produced with grape of Krakhuna, Tsitska, Kisi and 
+Mtsvane varieties. Wine is golden colored, characterized with strong 
+varietal aroma. Store at dry and cool place at 14-16 C. No expiration."
+            data-lang-ka="ღვინო დამზადებულია კრახუნას, ციცქას, ქისისა და მწვანეს 
+ჯიშის ყურძნისაგან.ფერი ოქროსფერი, ხასიათდება ძლიერი 
+ჯიშური არომატით.
+ შეინახეთ მშრალ და გრილ ადგილას 14-16 გრადუსის პირობებში. 
+შენახვის ვადა: განუსაზღვრელი."
+            data-lang-ru="Вино производится из винограда сортов Крахуна, Цицка, Киси и 
+Мцване. Вино золотистого цвета, характеризуется сильным 
+сортовым ароматом. Хранить в сухом и прохладном месте при температуре 14-16 С. Срок годности не ограничен.">
+   The wine is produced with grape of Krakhuna, Tsitska, Kisi and 
+Mtsvane varieties. Wine is golden colored, characterized with strong 
+varietal aroma. Store at dry and cool place at 14-16 C. No expiration.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+  
+
+<div class="wine-card reveal" data-color="red" data-method="barrel">
+   <div class="wine-media"><img src="https://rozewines.com/app/uploads/2024/04/Marbano-Asuretuli-2019.jpg" alt="Asuretuli"></div> 
+  <div class="details">
+<h2 data-lang-en="Asuretuli" data-lang-ka="ასურეთული" data-lang-ru="Асуретули">Asuretuli
+
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red Dry" data-lang-ka="წითელი მშრალი" data-lang-ru="Красное сухое">Red Dry</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="15%" data-lang-ka="15%" data-lang-ru="15%">15%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="15 €" data-lang-ka="15 €" data-lang-ru="15 €">15 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span data-lang-en=" The wine is produced by Georgian method - in barrel, with grape of 
+Asuretuli variety, grown in Asureti  and  aged in oak barrel. Color - dark 
+ruby, with aromas of  cherry, blackberry and raspberry. 
+Serve with  grilled meats and aged cheese. 
+Serving temperature 12-14 C."
+            data-lang-ka=" ღვინო დამზადებულია ასურეთში  მოწეული უმაღლესი ხარისხის 
+ასურეთული ჯიშის  (ასურეთული შალა) ყურძნისგან  ქართული 
+ტრადიციული მეთოდით - მუხის  ჩანში  და  დაძველებულია 
+მუხის კასრში. 
+ფერი - მუქი ლალისფერი, გამოირჩევა ალუბლის, მაყვლის და 
+ჟოლოს არომატებით.
+ რეკომენდირებულია მიირთვათ შემწვარ ხორცთან და  
+დაძველებულ ყვველთან ერთად.  
+შეინახეთ 12-14 C ტემპერატურული რეჟიმის დაცვით."
+            data-lang-ru=" The wine is produced by Georgian method - in barrel, with grape of 
+Asuretuli variety, grown in Asureti  and  aged in oak barrel. Color - dark 
+ruby, with aromas of  cherry, blackberry and raspberry. 
+Serve with  grilled meats and aged cheese. 
+Serving temperature 12-14 C.">
+   The wine is produced by Georgian method - in barrel, with grape of 
+Asuretuli variety, grown in Asureti  and  aged in oak barrel. Color - dark 
+ruby, with aromas of  cherry, blackberry and raspberry. 
+Serve with  grilled meats and aged cheese. 
+Serving temperature 12-14 C.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+  
+
+<div class="wine-card reveal" data-color="red" data-method="qvevri">
+     <div class="wine-media"><img src="https://rozewines.com/app/uploads/2024/04/Marbano-Tavkveri-Qvevri-2021.jpg" alt="Tavkveri"></div> 
+  <div class="details">
+<h2 data-lang-en="Tavkveri" data-lang-ka="თავკვერი" data-lang-ru="Тавквери">Tavkveri
+
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red dry, Qvevri wine" data-lang-ka="წითელი მშრალი, ქვევრის ღვინო" data-lang-ru="Красное сухое, куврирное вино">Red dry, Qvevri wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="15%" data-lang-ka="15%" data-lang-ru="15%">15%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="12 €" data-lang-ka="12 €" data-lang-ru="12 €">12 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span 
+        data-lang-en="The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties. " 
+        data-lang-ka=" ღვინო დამზადებულია სოფელ ხაშმში  მოწეული უმაღლესი 
+ხარისხის საფერავის ყურძნის ჯიშისგან კახური ტრადიციული 
+მეთოდით - ქვევრში.
+ ფერი - მუქი ბროწეულისფერი, გამოირჩევა ყავის, შავი 
+შოკოლადის, შავი ჩაის და მსუბუქი ვანილის არომატებით, რასაც 
+მოყვება ჯიშური მწიფე წითელი ხილის, ალუბლის და შავი 
+ქლიავის ტონები. 
+ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ სტეიკთან და შემწვარ ცხვრის 
+ხორცთან ერთად. შეინახეთ  12-14 C   ტემპერატურული რეჟიმის 
+დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. " 
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине 
+Квеври, из винограда сорта Саперави, выращенного в селе 
+Хашми региона Кахети. 
+Цвет - темно-гранатовый, с ароматами кофе, темного шоколада, 
+черного чая и легкой ванили, за которыми следуют разнообразные спелые красные фрукты, 
+вишня и черные сливы. 
+Вино богато фенольными соединениями и танинами. 
+Подавать к стейку и жареному ягненку. Температура подачи 12-14 С. 
+Благодаря особой технологии изготовления квеври вино характеризуется 
+антиоксидантными свойствами.">
+    The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+  
+
+<div class="wine-card reveal" data-color="red" data-method="qvevri">
+ <div class="wine-media"><img src="https://rozewines.com/app/uploads/2024/05/Marbano-Khashmi-Saperavi-Qvevri-2019-scaled.jpg" alt="Saperavi Qvevri"></div> 
+  <div class="details">
+<h2 data-lang-en="Saperavi Qvevri" data-lang-ka="საფერავი ქვევრი" data-lang-ru="Саперави Квеври">Saperavi Qvevri
+
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red dry, Qvevri wine" data-lang-ka="წითელი მშრალი, ქვევრის ღვინო" data-lang-ru="Красное сухое, куврирное вино">Red dry, Qvevri wine</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="15%" data-lang-ka="15%" data-lang-ru="15%">15%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="15 €" data-lang-ka="15 €" data-lang-ru="15 €">15 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span
+        data-lang-en="The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties. "
+        data-lang-ka=" ღვინო დამზადებულია სოფელ ხაშმში  მოწეული უმაღლესი 
+ხარისხის საფერავის ყურძნის ჯიშისგან კახური ტრადიციული 
+მეთოდით - ქვევრში.
+ ფერი - მუქი ბროწეულისფერი, გამოირჩევა ყავის, შავი 
+შოკოლადის, შავი ჩაის და მსუბუქი ვანილის არომატებით, რასაც 
+მოყვება ჯიშური მწიფე წითელი ხილის, ალუბლის და შავი 
+ქლიავის ტონები. 
+ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ სტეიკთან და შემწვარ ცხვრის 
+ხორცთან ერთად. შეინახეთ  12-14 C   ტემპერატურული რეჟიმის 
+დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. "
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине 
+Квеври, из винограда сорта Саперави, выращенного в селе 
+Хашми региона Кахети. 
+Цвет - темно-гранатовый, с ароматами кофе, темного шоколада, 
+черного чая и легкой ванили, за которыми следуют разнообразные спелые красные фрукты, 
+вишня и черные сливы. 
+Вино богато фенольными соединениями и танинами. 
+Подавать к стейку и жареному ягненку. Температура подачи 12-14 С. 
+Благодаря особой технологии изготовления квеври вино характеризуется 
+антиоксидантными свойствами.">
+ The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+    <p><strong></strong></p>
+    
+  </div>
+  </div>
+
+    
+
+<div class="wine-card reveal" data-color="red" data-method="other">
+ <div class="wine-media"><img src="https://rozewines.com/app/uploads/2024/04/Marbano-Saperavi-Legend-2021.jpg" alt="Saperavi Legend"></div> 
+  <div class="details">
+<h2 data-lang-en="Saperavi Legend" data-lang-ka="საფერავი ლეგენდა" data-lang-ru="Саперави Легенда">Saperavi Legend
+  
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red dry" data-lang-ka="წითელი მშრალი" data-lang-ru="Красное сухое">Red dry</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="15%" data-lang-ka="15%" data-lang-ru="15%">15%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="25 €" data-lang-ka="25 €" data-lang-ru="25 €">25 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span
+        data-lang-en=" The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties. "
+        data-lang-ka=" ღვინო დამზადებულია სოფელ ხაშმში  მოწეული უმაღლესი 
+ხარისხის საფერავის ყურძნის ჯიშისგან კახური ტრადიციული 
+მეთოდით - ქვევრში.
+ ფერი - მუქი ბროწეულისფერი, გამოირჩევა ყავის, შავი 
+შოკოლადის, შავი ჩაის და მსუბუქი ვანილის არომატებით, რასაც 
+მოყვება ჯიშური მწიფე წითელი ხილის, ალუბლის და შავი 
+ქლიავის ტონები. 
+ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ სტეიკთან და შემწვარ ცხვრის 
+ხორცთან ერთად. შეინახეთ  12-14 C   ტემპერატურული რეჟიმის 
+დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. "
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине 
+Квеври, из винограда сорта Саперави, выращенного в селе 
+Хашми региона Кахети. 
+Цвет - темно-гранатовый, с ароматами кофе, темного шоколада, 
+черного чая и легкой ванили, за которыми следуют разнообразные спелые красные фрукты, 
+вишня и черные сливы. 
+Вино богато фенольными соединениями и танинами. 
+Подавать к стейку и жареному ягненку. Температура подачи 12-14 С. 
+Благодаря особой технологии изготовления квеври вино характеризуется 
+антиоксидантными свойствами.">
+    The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+        
+
+   
+  </div>
+  </div>
+
+    
+
+<div class="wine-card reveal" data-color="red" data-method="barrel">
+  <div class="wine-media"><img src="https://topgeorgian.wine/wp-content/uploads/2023/11/QV0129-marbano-saperavi-qvevri-2020-1-430x430.jpg" alt="Saperavi"></div> 
+  <div class="details">
+<h2 data-lang-en="Saperavi" data-lang-ka="საფერავი" data-lang-ru="Саперави">Saperavi
+ 
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red dry" data-lang-ka="წითელი მშრალი" data-lang-ru="Красное сухое">Red dry</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="15%" data-lang-ka="15%" data-lang-ru="15%">15%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="15 €" data-lang-ka="15 €" data-lang-ru="15 €">15 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span
+        data-lang-en=" The wine is produced by Georgian method - in barrel, 
+with grape of Saperavi variety, grown in Bolnisi  
+and  aged in oak barrel. Color - dark cherry, 
+with aromas of  cherry, blackberry and raspberry. 
+Serve with  grilled meats and aged cheese. 
+Serving temperature 12-14 C."
+        data-lang-ka="ღვინო დამზადებულია ბოლნისში მოწეული უმაღლესი ხარისხის 
+საფერავის ყურძნის ჯიშისგან ქართული ტრადიციული მეთოდით - მუხის ჩანში და დაძველებულია მუხის კასრში. 
+ფერი - მუქი აუბლისფერი, გამოირჩევა ალუბლის, 
+მაყვლის და ჟოლოს არომატებით.
+ რეკომენდებულია მიირთვათ შემწვარ ხორცთან 
+და დაძველებულ  ყვველთან ერთად.  
+შეინახეთ 12-14 C ტემპერატურული რეჟიმის დაცვით."
+        data-lang-ru=" The wine is produced by Georgian method - in barrel, 
+with grape of Saperavi variety, grown in Bolnisi  
+and  aged in oak barrel. Color - dark cherry, 
+with aromas of  cherry, blackberry and raspberry. 
+Serve with  grilled meats and aged cheese. 
+Serving temperature 12-14 C.">
+       The wine is produced by Georgian method - in barrel, 
+with grape of Saperavi variety, grown in Bolnisi  
+and  aged in oak barrel. Color - dark cherry, 
+with aromas of  cherry, blackberry and raspberry. 
+Serve with  grilled meats and aged cheese. 
+Serving temperature 12-14 C.
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  </div>
+  </div>
+
+    
+
+<div class="wine-card reveal" data-color="red" data-method="other">
+  <div class="wine-media"><img src="https://rozewines.com/app/uploads/2024/04/Marbano-Saperavi-Reserve-2021.jpg" alt="Saperavi Reserve"></div> 
+  <div class="details">
+<h2 data-lang-en="Saperavi Reserve" data-lang-ka="საფერავი რეზერვი" data-lang-ru="Саперави Резерв">Saperavi Reserve
+ 
+</h2>
+    <p>
+      <strong data-lang-en="Type:" data-lang-ka="ტიპი:" data-lang-ru="Тип:">Type:</strong> 
+      <span data-lang-en="Red dry" data-lang-ka="წითელი მშრალი" data-lang-ru="Красное сухое">Red dry</span>
+    </p>
+    <p>
+      <strong data-lang-en="Alcohol:" data-lang-ka="ალკოჰოლი:" data-lang-ru="Алкоголь:">Alcohol:</strong> 
+      <span data-lang-en="15%" data-lang-ka="15%" data-lang-ru="15%">15%</span>
+    </p>
+    <p>
+      <strong data-lang-en="Price:" data-lang-ka="ფასი:" data-lang-ru="Цена:">Price:</strong> 
+      <span data-lang-en="35 €" data-lang-ka="35 €" data-lang-ru="35 €">35 €</span>
+    </p>
+    <div class="wine-desc"><p>
+      <strong data-lang-en="Description:" data-lang-ka="აღწერა:" data-lang-ru="Описание:">Description:</strong> 
+      <span
+        data-lang-en="The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties. "
+        data-lang-ka=" ღვინო დამზადებულია სოფელ ხაშმში  მოწეული უმაღლესი 
+ხარისხის საფერავის ყურძნის ჯიშისგან კახური ტრადიციული 
+მეთოდით - ქვევრში.
+ ფერი - მუქი ბროწეულისფერი, გამოირჩევა ყავის, შავი 
+შოკოლადის, შავი ჩაის და მსუბუქი ვანილის არომატებით, რასაც 
+მოყვება ჯიშური მწიფე წითელი ხილის, ალუბლის და შავი 
+ქლიავის ტონები. 
+ღვინო მდიდარია ფენოლური ნაერთებითა და  ტანინებით. 
+რეკომენდირებულია მიირთვათ სტეიკთან და შემწვარ ცხვრის 
+ხორცთან ერთად. შეინახეთ  12-14 C   ტემპერატურული რეჟიმის 
+დაცვით.
+ ღვინო, ქვევრის სპეციფიკური  ტექნოლოგიის გამო ხასიათდება 
+მაღალი  ანტიოქსიდანტური თვისებებით. "
+        data-lang-ru="Вино производится традиционным кахетинским методом - в глиняном кувшине 
+Квеври, из винограда сорта Саперави, выращенного в селе 
+Хашми региона Кахети. 
+Цвет - темно-гранатовый, с ароматами кофе, темного шоколада, 
+черного чая и легкой ванили, за которыми следуют разнообразные спелые красные фрукты, 
+вишня и черные сливы. 
+Вино богато фенольными соединениями и танинами. 
+Подавать к стейку и жареному ягненку. Температура подачи 12-14 С. 
+Благодаря особой технологии изготовления квеври вино характеризуется 
+антиоксидантными свойствами.">
+     The wine is produced by Kakhetian traditional  method - in clay pitcher  
+Qvevri, with  grape of Saperavi variety, grown in Kakheti region  village  
+Khashmi. 
+Color - dark pomegranate, with aromas of coffee, dark chocolate, 
+black tea and light vanilla, followed by a variety of ripe red fruits, cher
+ries and black plums. 
+Wine is reach with phenol compound and tannin. 
+Serve with  steak and grilled lamb. Serving temperature 12-14 C.
+ Due to specific technology of Qvevri, the wine is characterized 
+with anti-oxidant properties. 
+      </span>
+    </p></div>
+    <button type="button" class="read-more" onclick="toggleDesc(this)">Read more</button>
+  
+
+  </div>
+  </div>
+
+</div>
+
+
+
+<!-- ============================== PHOTO BAND ============================== -->
+<div class="photo-band">
+  <img src="https://images.pexels.com/photos/17765439/pexels-photo-17765439.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Rows of wine barrels ageing in the cellar">
+
+</div>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=100057078145120" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/marbanowinery/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <div class="footer-logo" aria-label="Marbano logo">
+    <img src="marbano_logo.png" alt="Marbano Logo" style="height: 60px; object-fit: contain; margin: 0 auto;" />
+    <div class="footer-contact">
+      <p><a href="tel:+551989830">+551 989 830</a><br><a href="mailto:marbanowinery@gmail.com">marbanowinery@gmail.com</a></p>
+    </div>
+  </div>
+  <nav class="footer-menu">
+    <ul>
+      <li><a href="index.html"><span data-lang-en="Home" data-lang-ka="მთავარი" data-lang-ru="Главная">Home</span></a></li>
+      <li><a href="shop.html"><span data-lang-en="Our wines" data-lang-ka="მაღაზია" data-lang-ru="Магазин" class="active">Our wines</span></a></li>
+      <li><a href="about.html"><span data-lang-en="About us" data-lang-ka="ჩვენს შესახებ" data-lang-ru="О нас">About us</span></a></li>
+          <li><a href="awards.html">
+        <span data-lang-en="Our Awards" data-lang-ka="Our Awards" data-lang-ru="Our Awards">Our Awards</span></a></li>
+      <li><a href="contact.html"><span data-lang-en="Contact us" data-lang-ka="კონტაქტი" data-lang-ru="Контакты">Contact us</span></a></li>
+    </ul>
+  </nav>
+  <a id="mkdf-back-to-top" href="#" aria-label="Back to top">
+    <span class="mkdf-btt-icon-holder" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 15 29" fill="none" focusable="false">
+        <g><polygon fill="currentColor" points="14.427,0.13 14.993,0.697 1.13,14.556 14.993,28.416 14.427,28.979 0,14.556"></polygon></g>
+      </svg>
+    </span>
+  </a>
+</footer>
+
+<script src="shop.js"></script>
+</body>
+</html>

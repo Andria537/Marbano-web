@@ -1,0 +1,556 @@
+/* ==========================================================================
+   MARBANO — design tokens
+   Palette pulled from the estate's own materials: qvevri clay, wine itself,
+   and the antique gold of a wax seal — not a stock template palette.
+   ========================================================================== */
+:root{
+  --paper:        #ffffff;
+  --paper-soft:   #faf7f2;
+  --ink:          #241d17;
+  --ink-soft:     #5c5248;
+  --wine:         #6e1423;
+  --wine-deep:    #4a0e17;
+  --clay:         #b3703f;
+  --clay-soft:    #d9a877;
+  --gold:         #a9822f;
+  --line:         #e9e2d6;
+
+  --display:  'Playfair Display', 'Noto Serif Georgian', serif;
+  --label:    'Marcellus', 'Noto Serif Georgian', serif;
+  --body:     'Montserrat', 'Noto Sans Georgian', sans-serif;
+
+  --container: 1220px;
+  --radius: 2px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+:lang(ka){ --display: 'Noto Serif Georgian', serif; --label: 'Noto Serif Georgian', serif; --body: 'Noto Sans Georgian', sans-serif; }
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *,*::before,*::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{ font-family: var(--display); font-weight: 700; color: var(--ink); margin: 0; }
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display: block; }
+button{ font-family: var(--body); }
+
+:focus-visible{ outline: 2px solid var(--wine); outline-offset: 3px; }
+
+.container{ max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+/* ==========================================================================
+   Signature element — the wax-seal stamp
+   Used as the eyebrow mark on every major section: a nod to the wax seal on
+   a wine bottle and the clay stamp of a qvevri. Ties the whole page together.
+   ========================================================================== */
+.seal{
+  --sz: 74px;
+  width: var(--sz); height: var(--sz);
+  margin: 0 auto 22px;
+  display: grid; place-items: center;
+  position: relative;
+}
+.seal svg{ width: 100%; height: 100%; }
+.seal .seal-num{
+  font-family: var(--label);
+  font-size: 13px;
+  letter-spacing: .12em;
+  fill: var(--paper-soft);
+}
+
+.eyebrow{
+  font-family: var(--label);
+  font-size: 13px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--clay);
+  text-align: center;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.section-heading{
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 18px;
+}
+.section-heading h2{ font-size: clamp(30px, 4vw, 44px); }
+
+.section-desc{
+  max-width: 620px;
+  margin: 18px auto 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+}
+
+.divider{
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(var(--clay), transparent);
+  display: inline-block;
+  margin: 0 18px;
+  vertical-align: middle;
+}
+
+.pour-rule{
+  height: 2px;
+  max-width: 220px;
+  margin: 46px auto;
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--wine) 50%, var(--gold) 80%, transparent);
+  opacity: .55;
+}
+
+/* ==========================================================================
+   Preloader
+   ========================================================================== */
+#preloader{
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .7s var(--ease), visibility .7s var(--ease);
+}
+#preloader.loaded{ opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-container .brand-text{
+  font-family: var(--display);
+  font-size: clamp(28px, 5vw, 40px);
+  letter-spacing: .06em;
+  color: var(--wine);
+  display: flex; align-items: center; gap: 16px;
+  animation: fadeUp .9s var(--ease);
+}
+.loader-container .divider{ background: var(--clay); }
+.loader-container .since{
+  font-family: var(--label);
+  font-size: 12px;
+  letter-spacing: .3em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+@keyframes fadeUp{ from{ opacity: 0; transform: translateY(10px);} to{ opacity: 1; transform: translateY(0);} }
+
+/* ==========================================================================
+   Header / Nav
+   ========================================================================== */
+.site-header{
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .4s var(--ease), padding .4s var(--ease), background .4s var(--ease);
+}
+.site-header.scrolled{ border-color: var(--line); padding: 12px 48px; }
+
+.site-header .logo img{ height: 52px; width: auto; transition: height .4s var(--ease); }
+.site-header.scrolled .logo img{ height: 40px; }
+
+.menu ul{ list-style: none; display: flex; gap: 40px; margin: 0; padding: 0; }
+.menu > ul > li{ position: relative; }
+.menu a{
+  font-family: var(--label);
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 8px 0;
+  position: relative;
+}
+.menu a::after{
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0;
+  background: var(--wine); transition: width .35s var(--ease);
+}
+.menu a:hover::after, .menu a.active::after{ width: 100%; }
+.menu a.active{ color: var(--wine); }
+
+.dropdown{
+  position: absolute; top: 100%; left: 0; min-width: 170px;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: 0 18px 40px rgba(36,29,23,.08);
+  padding: 6px 0; margin: 0; list-style: none;
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: all .3s var(--ease);
+}
+.menu li:hover .dropdown{ opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown li a{ display: block; padding: 10px 20px; font-size: 13px; }
+.dropdown li a:hover{ background: var(--paper-soft); }
+
+.hamburger{ display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 600; }
+.hamburger span{ width: 26px; height: 2px; background: var(--ink); transition: all .3s var(--ease); }
+.hamburger.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity: 0; }
+.hamburger.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu{
+  position: fixed; top: 0; right: 0; height: 100vh; width: min(78vw, 340px);
+  background: var(--paper); z-index: 550;
+  transform: translateX(100%); transition: transform .45s var(--ease);
+  box-shadow: -20px 0 50px rgba(36,29,23,.12);
+  padding: 110px 40px 40px;
+}
+.mobile-menu.open{ transform: translateX(0); }
+.mobile-menu ul{ list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 26px; }
+.mobile-menu a{ font-family: var(--label); font-size: 17px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink); }
+
+/* ==========================================================================
+   Hero slider
+   ========================================================================== */
+.slider-container{
+  position: relative; height: 100vh; min-height: 560px; overflow: hidden;
+  background: var(--ink);
+}
+.slide{
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.4s var(--ease);
+}
+.slide::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(36,29,23,.35), rgba(36,29,23,.55) 60%, rgba(36,29,23,.7)); }
+.slide.active{ opacity: 1; }
+
+.slide-overlay{
+  position: absolute; inset: 0; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; color: #fff; padding: 0 24px;
+}
+.slide-overlay h1{
+  color: #fff; font-size: clamp(38px, 6.4vw, 78px); letter-spacing: .01em;
+  animation: fadeUp 1s var(--ease) .2s both;
+}
+.slide-overlay p{
+  font-family: var(--label); font-size: clamp(14px, 1.6vw, 18px);
+  letter-spacing: .18em; text-transform: uppercase; color: var(--clay-soft);
+  margin-top: 18px;
+  animation: fadeUp 1s var(--ease) .45s both;
+}
+
+.arrows{ position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; z-index: 6; pointer-events: none; }
+.arrow{
+  pointer-events: all; background: transparent; border: 1px solid rgba(255,255,255,.4);
+  color: #fff; width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+  font-size: 15px; transition: all .3s var(--ease);
+}
+.arrow:hover{ background: #fff; color: var(--wine); border-color: #fff; }
+
+.dots{ position: absolute; bottom: 34px; left: 0; right: 0; z-index: 6; display: flex; justify-content: center; gap: 10px; }
+.dots .dot{ width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.4); cursor: pointer; transition: all .3s var(--ease); }
+.dots .dot.active{ background: #fff; width: 24px; border-radius: 5px; }
+
+/* ==========================================================================
+   About / vineyard section
+   ========================================================================== */
+.vineyard-section{ padding: 130px 0 100px; background: var(--paper); }
+.vineyard-content{ max-width: 760px; margin: 0 auto; text-align: center; padding: 0 32px; }
+.vineyard-subtitle{
+  font-family: var(--label); font-size: 13px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--clay); margin: 0 0 10px;
+}
+.vineyard-title{ font-size: clamp(30px, 4vw, 44px); margin-bottom: 26px; }
+.vineyard-text{ color: var(--ink-soft); font-size: 16px; }
+
+.mkdf-btn{
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--label); font-size: 13px; letter-spacing: .16em;
+  color: var(--wine); border-bottom: 1px solid var(--wine);
+  padding-bottom: 4px; transition: all .3s var(--ease);
+}
+.mkdf-btn:hover{ gap: 16px; color: var(--wine-deep); border-color: var(--wine-deep); }
+.wpb_column, .vc_column-inner, .wpb_wrapper{ display: contents; } /* legacy VC wrappers, no longer boxed */
+.vc_empty_space{ display: none; }
+.mkdf-row-grid-section-wrapper, .section-wrapper{ display: none; } /* empty legacy placeholders */
+
+/* ==========================================================================
+   Heritage timeline  (new section)
+   ========================================================================== */
+.heritage-section{ background: var(--paper-soft); padding: 110px 0; }
+.heritage-line{
+  position: relative; max-width: 900px; margin: 70px auto 0; padding: 0 32px;
+  display: flex; justify-content: space-between; gap: 24px;
+}
+.heritage-line::before{
+  content: ""; position: absolute; top: 15px; left: 6%; right: 6%; height: 1px;
+  background: linear-gradient(90deg, var(--clay), var(--gold), var(--clay));
+}
+.heritage-point{ position: relative; flex: 1; text-align: center; }
+.heritage-point .mark{
+  width: 32px; height: 32px; border-radius: 50%; margin: 0 auto 22px;
+  background: var(--paper-soft); border: 1px solid var(--clay);
+  display: grid; place-items: center; font-family: var(--label); font-size: 12px; color: var(--wine);
+  position: relative; z-index: 2;
+}
+.heritage-point .year{ font-family: var(--display); font-size: 22px; color: var(--wine); margin-bottom: 8px; }
+.heritage-point p{ color: var(--ink-soft); font-size: 14px; max-width: 220px; margin: 0 auto; }
+
+/* ==========================================================================
+   Qvevri process section (new)
+   ========================================================================== */
+.process-section{ padding: 120px 0; background: var(--paper); }
+.process-grid{
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px;
+  max-width: 1040px; margin: 70px auto 0; padding: 0 32px;
+}
+.process-step{ text-align: center; position: relative; }
+.process-step .icon{
+  width: 84px; height: 84px; margin: 0 auto 26px;
+  border-radius: 50%; background: var(--paper-soft); border: 1px solid var(--line);
+  display: grid; place-items: center;
+}
+.process-step .icon svg{ width: 40px; height: 40px; stroke: var(--wine); }
+.process-step .num{
+  font-family: var(--label); font-size: 12px; letter-spacing: .2em; color: var(--clay); display: block; margin-bottom: 10px;
+}
+.process-step h3{ font-size: 20px; margin-bottom: 10px; }
+.process-step p{ color: var(--ink-soft); font-size: 14.5px; max-width: 260px; margin: 0 auto; }
+.process-step:not(:last-child)::after{
+  content: ""; position: absolute; top: 42px; left: calc(100% + 25px); width: 0;
+  border-top: 1px dashed var(--clay-soft);
+}
+@media (min-width: 769px){
+  .process-step:not(:last-child)::after{ width: calc(100% - 0px); left: calc(100% + 0px); display: none; }
+}
+
+/* ==========================================================================
+   Wines
+   ========================================================================== */
+.contact-info-section{ padding: 110px 0; text-align: center; background: var(--paper); }
+.contact-info-section h5{
+  font-family: var(--label); font-size: 13px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--clay); margin: 0 0 12px;
+}
+.contact-info-section h1{ font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px; }
+.contact-info-section .desc{ max-width: 600px; margin: 0 auto; color: var(--ink-soft); font-size: 15.5px; }
+
+.wine-wrapper{
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  max-width: 1100px; margin: 60px auto 0; padding: 0 32px;
+}
+.wine-link{ display: block; }
+.wine-block{
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  background: var(--ink);
+}
+.wine-block img{ width: 100%; height: 420px; object-fit: cover; transition: transform .8s var(--ease); }
+.wine-block:hover img{ transform: scale(1.06); }
+.wine-block::before{
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(36,29,23,.82) 100%);
+  z-index: 1;
+}
+.wine-block .details{
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 26px;
+  text-align: left;
+}
+.wine-block .details h2{
+  color: #fff; font-size: 22px; display: flex; align-items: center; justify-content: space-between;
+}
+.wine-block .details h2::after{ content: "→"; font-family: var(--body); font-size: 16px; color: var(--clay-soft); transition: transform .3s var(--ease); }
+.wine-block:hover .details h2::after{ transform: translateX(6px); }
+
+/* ==========================================================================
+   Awards teaser (new)
+   ========================================================================== */
+.awards-teaser{ background: var(--wine); color: #fff; padding: 90px 0; text-align: center; }
+.awards-teaser .eyebrow{ color: var(--clay-soft); }
+.awards-teaser h2{ color: #fff; font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 20px; }
+.awards-teaser p{ color: rgba(255,255,255,.75); max-width: 560px; margin: 0 auto 34px; font-size: 15px; }
+.awards-strip{
+  display: flex; justify-content: center; gap: 46px; flex-wrap: wrap; margin: 0 auto 40px;
+}
+.awards-strip .stat{ text-align: center; }
+.awards-strip .stat .n{ font-family: var(--display); font-size: 36px; color: #fff; }
+.awards-strip .stat .l{ font-family: var(--label); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--clay-soft); margin-top: 6px; }
+.awards-teaser .mkdf-btn{ color: #fff; border-color: rgba(255,255,255,.6); }
+.awards-teaser .mkdf-btn:hover{ color: var(--clay-soft); border-color: var(--clay-soft); }
+
+/* ==========================================================================
+   Address & contact
+   ========================================================================== */
+.info-container{ display: flex; justify-content: center; gap: 60px; margin-top: 50px; flex-wrap: wrap; }
+.info-box{ max-width: 240px; }
+.info-box .icon{ font-size: 26px; margin-bottom: 14px; }
+.info-box h3{ font-family: var(--label); font-size: 13px; letter-spacing: .2em; color: var(--wine); margin-bottom: 10px; }
+.info-box p{ color: var(--ink-soft); font-size: 14.5px; }
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+.image-gallery-section{ padding: 110px 0; background: var(--paper-soft); }
+.image-carousel .gallery-item{ padding: 0 12px; }
+.image-carousel img{ width: 100%; height: 460px; object-fit: cover; border-radius: var(--radius); }
+.owl-nav{ text-align: center; margin-top: 30px; }
+.owl-nav button{
+  background: transparent !important; border: 1px solid var(--line) !important; color: var(--wine) !important;
+  width: 42px; height: 42px; border-radius: 50%; margin: 0 6px !important; font-size: 16px !important;
+}
+.owl-dots{ text-align: center; margin-top: 20px; }
+.owl-dot span{ background: var(--line) !important; }
+.owl-dot.active span{ background: var(--wine) !important; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer{
+  background: var(--ink); color: rgba(255,255,255,.75);
+  padding: 70px 48px 34px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 30px;
+  position: relative;
+}
+.footer-social{ display: flex; gap: 16px; }
+.footer-social a{
+  width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%;
+  display: grid; place-items: center; color: #fff; transition: all .3s var(--ease);
+}
+.footer-social a:hover{ background: var(--clay); border-color: var(--clay); }
+.footer-logo{ text-align: center; }
+.footer-contact{ margin-top: 10px; }
+.footer-contact a{ color: rgba(255,255,255,.7); font-size: 13.5px; }
+.footer-menu{ justify-self: end; }
+.footer-menu ul{ list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+.footer-menu a{ font-family: var(--label); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.footer-menu a:hover{ color: var(--clay-soft); }
+
+#mkdf-back-to-top{
+  position: fixed; right: 28px; bottom: 28px; z-index: 400;
+  width: 46px; height: 46px; border-radius: 50%; background: var(--wine); color: #fff;
+  display: grid; place-items: center; opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: all .35s var(--ease);
+}
+#mkdf-back-to-top.visible{ opacity: 1; visibility: visible; transform: translateY(0); }
+#mkdf-back-to-top svg{ transform: rotate(90deg); }
+
+/* ==========================================================================
+   Scroll reveal
+   ========================================================================== */
+.reveal{ opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in{ opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   Photo bands — full-bleed images inserted between sections
+   ========================================================================== */
+.photo-band{
+  position: relative;
+  height: 56vh;
+  min-height: 340px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.photo-band img{
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 1.4s var(--ease);
+}
+.photo-band:hover img{ transform: scale(1.08); }
+.photo-band::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(36,29,23,.15), rgba(36,29,23,.55));
+}
+.photo-band .band-caption{
+  position: absolute; left: 0; right: 0; bottom: 30px; z-index: 2;
+  text-align: center;
+  font-family: var(--label);
+  font-size: 13px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+}
+.photo-band .band-caption span{ color: var(--clay-soft); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 980px){
+  .wine-wrapper{ grid-template-columns: 1fr; }
+  .process-grid{ grid-template-columns: 1fr; gap: 60px; }
+  .heritage-line{ flex-direction: column; gap: 46px; }
+  .heritage-line::before{ display: none; }
+  footer{ grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .footer-menu{ justify-self: center; }
+}
+
+@media (max-width: 768px){
+  .menu, .site-header .hamburger + nav{ display: none; }
+  .hamburger{ display: flex; }
+  .site-header{ padding: 16px 24px; }
+  .vineyard-section, .process-section, .heritage-section, .contact-info-section, .image-gallery-section, .awards-teaser{ padding: 80px 0; }
+  .awards-strip{ gap: 30px; }
+  .photo-band{ height: 38vh; min-height: 260px; }
+}
+
+
+
+.contact-info-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:140px;
+    margin-top:60px;
+    flex-wrap:wrap;
+}
+
+.contact-info-item{
+    text-align:center;
+    max-width:280px;
+}
+
+.contact-info-icon{
+    font-size:34px;
+    margin-bottom:22px;
+}
+
+.contact-info-item h4{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    letter-spacing:3px;
+    color:#5d2424;
+    margin-bottom:20px;
+}
+
+.contact-info-item p{
+    font-size:20px;
+    color:#444;
+    line-height:1.8;
+    margin:0;
+}
+
+.contact-info-item a{
+    display:block;
+    font-size:20px;
+    color:#222;
+    text-decoration:none;
+    line-height:1.9;
+    transition:.3s;
+}
+
+
+@media(max-width:768px){
+
+    .contact-info-wrap{
+        gap:60px;
+    }
+
+    .contact-info-item{
+        width:100%;
+    }
+
+}
+
+/* Mobile menu close (X) button */
+.mobile-menu-close{ display: none; }
+@media (max-width: 768px){
+  .mobile-menu-close{ display: flex; align-items: center; justify-content: center; position: absolute; top: 22px; right: 24px; width: 40px; height: 40px; background: none; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); font-size: 18px; line-height: 1; cursor: pointer; }
+  .mobile-menu-close:hover{ color: var(--wine); border-color: var(--wine); }
+}
